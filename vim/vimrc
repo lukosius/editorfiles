@@ -1,0 +1,89 @@
+" General
+set history=1000
+set autoread
+filetype plugin on
+filetype indent on
+
+" UI
+set wildmenu
+set wildignore=*.o,*~,*.pyc
+set ruler
+set cmdheight=1
+set lazyredraw
+set showmatch
+set mat=2
+set number
+set showcmd
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Search
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+" Colors
+syntax enable
+colorscheme desert
+set background=dark
+
+if has("gui_running")
+    set guioptions-=T
+    set guioptions+=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+
+" Editing
+set encoding=utf8
+set ffs=unix,dos,mac
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set ai
+set si
+set wrap
+
+" Backup files
+set nobackup
+set nowb
+set noswapfile
+
+" Status line
+hi User1 ctermbg=red ctermfg=white
+hi User2 ctermbg=blue ctermfg=white
+hi User3 ctermbg=yellow ctermfg=white
+hi User4 ctermbg=green ctermfg=white
+hi User5 ctermbg=green ctermfg=white
+hi User5 ctermbg=green ctermfg=white
+hi User6 ctermbg=blue ctermfg=white
+hi User7 ctermbg=red ctermfg=white
+hi User8 ctermbg=blue ctermfg=white
+hi User9 ctermbg=magenta ctermfg=white
+hi User0 ctermbg=black ctermfg=white
+
+set laststatus=2
+set statusline=
+set statusline+=%7*\[%n]                                  "buffernr
+set statusline+=%1*\ %<%F\                                "File+path
+set statusline+=%2*\ %y\                                  "FileType
+set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
+set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
+set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
+set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "Spellanguage & Highlight on?
+set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
+set statusline+=%9*\ col:%03c\                            "Colnr
+set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+
+function! HighlightSearch()
+    if &hls
+        return 'H'
+    else
+        return ''
+    endif
+endfunction
