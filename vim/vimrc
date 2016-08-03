@@ -68,8 +68,7 @@ hi User9 ctermbg=magenta ctermfg=white
 hi User0 ctermbg=black ctermfg=white
 
 set laststatus=2
-set statusline=
-set statusline+=%7*\[%n]                                  "buffernr
+set statusline=%7*\[%n]                                   "buffernr
 set statusline+=%1*\ %<%F\                                "File+path
 set statusline+=%2*\ %y\                                  "FileType
 set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
